@@ -34,10 +34,16 @@ public class Pet {
 			return petType.Monkey;
 	}
 	
-	public void checkAge() {
+	public int checkAge() {
 		//int age = BaseEngine.age(getBornDate());
 		//setAge(age);
-		System.out.println(BaseEngine.age(getBornDate()));
+		String str = BaseEngine.age(getBornDate());
+		str = str.replaceAll("[^0-9]", " ");
+		str = str.replaceAll("( )+", " ").trim();
+		String[] strMass = str.split(" ");
+		int num1 = Integer.parseInt(strMass[0]);
+		System.out.println(num1);
+		return num1;
 	}
 	
 	private enum PetType {
