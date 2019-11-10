@@ -19,13 +19,26 @@ pipeline {
           echo 'Deploying...'
         }
       }
-      stage('SCM Checkout'){
-         git 'https://github.com/TheRSpace/DevOps'
-      }
-      stage('Compile-Package'){
-         //def home = tool name: 'Oracle JDK 8', type: 'jdk'
-         //sh "${home}/bin/UnitTest"
-      }
-     
+      stages {
+        stage('Test') {
+            steps {
+                sh './gradlew check'
+            }
+        }
+    }
+    post {
+        always {
+            junit 'build/reports/**/*.xml'
+        }
+    }
+  }
+}
+node{
+  stage('SCM Checkout'){
+    git 'https://github.com/TheRSpace/DevOps'
+  }
+  stage('Compile-Package'){
+    //def home = tool name: 'Oracle JDK 8', type: 'jdk'
+    //sh "${home}/bin/UnitTest"
   }
 }
