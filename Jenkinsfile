@@ -3,6 +3,7 @@ node{
     git 'https://github.com/TheRSpace/DevOps'
   }
   stage('Compile-Package'){
-    sh 'eclipse package'
+    def home = tool name: '', type: 'jdk'
+    sh "${home}/bin/UnitTest"
   }
 }
