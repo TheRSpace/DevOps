@@ -21,11 +21,11 @@ pipeline {
         }
       }
   }
-   post {
-        always {
-            junit 'build/reports/**/*.xml'
-        }
-    }
+   //post {
+       // always {
+            //junit 'build/reports/**/*.xml'
+        //}
+    //}
 }
 node{
   stage('SCM Checkout'){
