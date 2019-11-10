@@ -10,6 +10,7 @@ pipeline {
       }
       stage('Test') {
         steps {
+           sh './gradlew check'
            sh 'java -version'
            echo 'Testing...'
         }
@@ -19,11 +20,6 @@ pipeline {
           echo 'Deploying...'
         }
       }
-        stage('Test') {
-            steps {
-                sh './gradlew check'
-            }
-        }
   }
    post {
         always {
