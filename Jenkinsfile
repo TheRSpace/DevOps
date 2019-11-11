@@ -33,14 +33,14 @@ pipeline {
         //}
     //}
 }
-node{
-  stage('SCM Checkout'){
-    git 'https://github.com/TheRSpace/DevOps'
-  }
-  stage('Compile-Package'){
+//node{
+ // stage('SCM Checkout'){
+   // git 'https://github.com/TheRSpace/DevOps'
+ // }
+ // stage('Compile-Package'){
      //sh ''
      //bat label: '', script: 'compile'
     //def home = tool name: 'Oracle JDK 8', type: 'jdk'
     //sh "${home}/bin/UnitTest"
-  }
-}
+ // }
+//}
