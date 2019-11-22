@@ -1,8 +1,5 @@
-pipeline {
-   agent none
-   node{
-      stages {
-         stage('Build') {
+node{
+    stage('Build') {
            steps {
              echo 'Building...'
              sh 'mvn -B clean package'
@@ -18,24 +15,4 @@ pipeline {
         stage('Run App'){
 
         }
-        stage('Test') {
-           steps {
-              //sh './gradlew check'
-              //sh 'java -version'
-              echo 'Testing...'
-           }
-        }
-         stage('Deploy') {
-           steps {
-             echo 'Deploying...'
-           }
-         }
-     }
-      //post {
-          // always {
-               //junit 'build/reports/**/*.xml'
-           //}
-       //}
-   }
 }
-
