@@ -1,10 +1,10 @@
-package Characters;
+package com.test.DevOpsTest;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import MainEngine.Engine;
+
 
 public class Pet {
 	
@@ -42,7 +42,7 @@ public class Pet {
 		str = str.replaceAll("( )+", " ").trim();
 		String[] strMass = str.split(" ");
 		int num1 = Integer.parseInt(strMass[0]);
-		System.out.println(num1);
+		System.out.println("Pet age:" + num1);
 		return num1;
 	}
 	

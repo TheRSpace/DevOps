@@ -1,21 +1,25 @@
-package test;
+package com.test.DevOpsTest;
 
-import static org.junit.jupiter.api.Assertions.*;
 
+//import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import Characters.Pet;
-import MainEngine.Engine;
 
-class EngineTest {
-	
-	private Engine engine;
+/**
+ * Unit test for simple App.
+ */
+
+public class AppTest 
+{
 	private Pet PetTemp;
+	private Engine engine;
+	
 	//private Pet Moris;
 	
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		engine = Engine.getInstance();
 		//dd-MM-yyyy HH:mm
 		PetTemp = new Pet(engine.dateParseToDate("09-11-2017 14:30"));
@@ -24,7 +28,7 @@ class EngineTest {
 	}
 
 	@Test
-	void test() {
+	public void test() {
 		int result = PetTemp.checkAge();
 		assertEquals(2, result);
 	}

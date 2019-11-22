@@ -1,15 +1,15 @@
-package MainEngine;
+package com.test.DevOpsTest;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import Characters.Pet;
+
 
 public class Engine {
 	private Date todaysDate = new Date();
-	private ArrayList<Pet> pets = new ArrayList<>();
+	private ArrayList<Pet> pets = new ArrayList<Pet>();
 	private static Engine instance = new Engine();
 	
 	public String age(Date bornDate) {

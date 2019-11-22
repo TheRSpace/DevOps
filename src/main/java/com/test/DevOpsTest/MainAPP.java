@@ -1,7 +1,5 @@
-package Main;
+package com.test.DevOpsTest;
 
-import Characters.Pet;
-import MainEngine.Engine;
 
 public class MainAPP {
 	public static void main(String[] args) {

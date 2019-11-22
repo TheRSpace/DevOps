@@ -1,4 +1,4 @@
-package Characters;
+package com.test.DevOpsTest;
 
 import java.util.Date;
 
