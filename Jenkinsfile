@@ -25,8 +25,8 @@ pipeline{
             }
         }
     }
-
-node{
+}
+node('master'){
         stage('SCM Checkout'){
                git 'https://github.com/TheRSpace/DevOps'
          }
@@ -40,4 +40,4 @@ node{
            sh 'mvn package'
         }
 }
-}
+
