@@ -6,7 +6,5 @@ node{
         stage('Maven install'){
          sh 'mvn install'
         }
-        stage('Compile-Package'){
-           sh 'mvn package'
-        }
+       
 }
