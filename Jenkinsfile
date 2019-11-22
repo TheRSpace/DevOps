@@ -1,46 +1,25 @@
-pipeline {
-   agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
 
-   stages {
-      stage('Build') {
-        steps {
-          echo 'Building...'
-          sh 'mvn -B clean package'
-          echo "Running ${env.BUILD_ID} ${env.BUILD_DISPLAY_NAME} on ${env.NODE_NAME} and JOB ${env.JOB_NAME}"
+node{
+        stage('SCM Checkout'){
+               git 'https://github.com/TheRSpace/DevOps'
+                withMaven(
+        // Maven installation declared in the Jenkins "Global Tool Configuration"
+        maven: 'maven-3',
+        // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
+        // We recommend to define Maven settings.xml globally at the folder level using
+        // navigating to the folder configuration in the section "Pipeline Maven Configuration / Override global Maven configuration"
+        // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
+        mavenSettingsConfig: 'my-maven-settings') {
+ 
+      // Run the maven build
+      sh "mvn clean verify"
+ 
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs & SpotBugs reports...
+         }
+        stage('Maven install'){
+         sh 'mvn install'
         }
-      }
-      stage('Test') {
-        steps {
-           //sh './gradlew check'
-           //sh 'java -version'
-           echo 'Testing...'
+        stage('Compile-Package'){
+           sh 'mvn package'
         }
-      }
-      stage('Deploy') {
-        steps {
-          echo 'Deploying...'
-        }
-      }
-  }
-   //post {
-       // always {
-            //junit 'build/reports/**/*.xml'
-        //}
-    //}
 }
-//node{
- // stage('SCM Checkout'){
-   // git 'https://github.com/TheRSpace/DevOps'
- // }
- // stage('Compile-Package'){
-     //sh ''
-     //bat label: '', script: 'compile'
-    //def home = tool name: 'Oracle JDK 8', type: 'jdk'
-    //sh "${home}/bin/UnitTest"
- // }
-//}
