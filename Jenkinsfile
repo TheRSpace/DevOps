@@ -1,6 +1,7 @@
 pipeline{
         agent any
        tools {
+        jdk 'jdk13'
         maven 'MavenLoco'
        }
          stages {
