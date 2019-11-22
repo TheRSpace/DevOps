@@ -1,4 +1,9 @@
-
+pipeline{
+        agent none
+       tools {
+        maven 'maven-3.5.0'
+       }
+}
 node{
         stage('SCM Checkout'){
                git 'https://github.com/TheRSpace/DevOps'
