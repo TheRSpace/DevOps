@@ -22,7 +22,7 @@ pipeline{
         }
         stage('Run'){
                 steps{
-                        sh 'cd C:/Program Files "(x86)/Jenkins/workspace/DevOps/target'
+                        sh 'cd C:/Program Files "("x86")"/Jenkins/workspace/DevOps/target'
                 sh 'java -cp DevOpsTest-0.0.1-SNAPSHOT.jar MainApp.Main'
                 }
         }
