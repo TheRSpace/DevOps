@@ -12,7 +12,7 @@ pipeline{
         //}
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'mvn package'
             }
             post {
                 always {
@@ -26,9 +26,9 @@ node('master'){
         stage('SCM Checkout'){
                git 'https://github.com/TheRSpace/DevOps'
          }
-        stage('Maven install'){
-                sh 'mvn install'
-        }
+        //stage('Maven install'){
+               // sh 'mvn install'
+        //}
         stage('Run'){
                 //sh 'cd C:/Program Files "(x86)/Jenkins/workspace/DevOps/target'
                 sh 'java -cp DevOpsTest-0.0.1-SNAPSHOT.jar MainApp.Main'
