@@ -28,10 +28,10 @@ node('master'){
          }
         //stage('Maven install'){
                // sh 'mvn install'
-        //}
-        //stage('Run'){
-               // sh 'cd $HOME/workspace/DevOps/target \n java -cp DevOps-1.0.jar MainApp.Main'
-       // }
+      //  }
+        stage('Run'){
+                sh 'cd $HOME/workspace/DevOps/target \n java -cp DevOpsTest-0.0.1-SNAPSHOT.jar MainApp.Main'
+        }
         //stage('Compile-Package'){
           // sh 'mvn package'
        // }
