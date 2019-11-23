@@ -22,7 +22,7 @@ pipeline{
         }
         stage('Compile'){
                 steps{
-                        sh 'cd C:/"Program Files (x86)"/Jenkins/workspace/DevOps/target \n javac MainAPP'
+                        sh 'cd C:/"Program Files (x86)"/Jenkins/workspace/DevOps/target \n jar cf JarExample.jar MainAPP.class'
 
                 }
         }
