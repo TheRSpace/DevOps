@@ -4,12 +4,12 @@ pipeline{
         jdk 'jdk13'
         maven 'MavenLoco'
        }
-         stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
+        stages {
+        //stage('Build') {
+            //steps {
+                //sh 'mvn -B -DskipTests clean package'
+            //}
+        //}
         stage('Test') {
             steps {
                 sh 'mvn test'
