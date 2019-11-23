@@ -30,7 +30,7 @@ node('master'){
                // sh 'mvn install'
       //  }
         stage('Run'){
-                sh 'cd C:/Program Files(x86)/Jenkins/workspace/DevOps/target \n java -cp DevOpsTest-0.0.1-SNAPSHOT.jar MainApp.Main'
+                sh 'cd /c/Program Files (x86)/Jenkins/workspace/DevOps/target \n java -cp DevOpsTest-0.0.1-SNAPSHOT.jar MainApp.Main'
         }
         //stage('Compile-Package'){
           // sh 'mvn package'
