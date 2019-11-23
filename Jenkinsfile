@@ -20,6 +20,9 @@ pipeline{
                 }
             }
         }
+        stage('Run'){
+              sh 'java -cp DevOpsTest-0.0.1-SNAPSHOT.jar MainApp.Main' 
+        }
     }
 }
 node('master'){
