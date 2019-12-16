@@ -12,48 +12,72 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
   </properties>
 <build>
 	<pluginManagement>
 		<plugins>
-			<plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-surefire-plugin</artifactId>
-	            <version>2.22.0</version>
-	            <dependencies>
-	                <dependency>
-	       				<groupId>org.junit.platform</groupId>
-	      				<artifactId>junit-platform-surefire-provider</artifactId>
-	      				<version>1.2.0</version>
-	    			</dependency>
-	            </dependencies>
-	        </plugin> 
-	        <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
-                <configuration>
-                    <source>13</source>
-                    <target>13</target>
-                </configuration>
-            </plugin>
+		
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-pmd-plugin</artifactId>
+	        <version>3.12.0</version>
+	      </plugin>
+      
+		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.22.0</version>
+            <dependencies>
+                <dependency>
+       				<groupId>org.junit.platform</groupId>
+      				<artifactId>junit-platform-surefire-provider</artifactId>
+      				<version>1.2.0</version>
+    			</dependency>
+            </dependencies>
+        </plugin> 
+        
+        <plugin>
+               <artifactId>maven-compiler-plugin</artifactId>
+               <version>3.5.1</version>
+               <configuration>
+                   <source>13</source>
+                   <target>13</target>
+               </configuration>
+        </plugin>
+            
             <plugin>
-        <!-- Build an executable JAR -->
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.0.2</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>com.mycompany.app.App</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+        
+        <plugin>
+	        <!-- Build an executable JAR -->
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-jar-plugin</artifactId>
+	        <version>3.0.2</version>
+	        <configuration>
+	          <archive>
+	            <manifest>
+	              <addClasspath>true</addClasspath>
+	              <classpathPrefix>lib/</classpathPrefix>
+	              <mainClass>com.mycompany.app.App</mainClass>
+	            </manifest>
+	          </archive>
+	        </configuration>
       </plugin>
+      
       </plugins>
     </pluginManagement>
   </build>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -69,4 +93,36 @@
     </dependency>
   </dependencies>
   
+<reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.12.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.12.0</version>
+        <configuration>
+          <language>jsp</language>
+          <rulesets>
+            <ruleset>/category/jsp/bestpractices.xml</ruleset>
+            <ruleset>/category/jsp/codestyle.xml</ruleset>
+            <ruleset>/category/jsp/design.xml</ruleset>
+            <ruleset>/category/jsp/errorprone.xml</ruleset>
+            <ruleset>/category/jsp/security.xml</ruleset>
+          </rulesets>
+          <compileSourceRoots>
+            <compileSourceRoot>com.test.DevOpsTest.StaticCodeExample</compileSourceRoot>
+          </compileSourceRoots>
+          <linkXref>true</linkXref>
+          <sourceEncoding>utf-8</sourceEncoding>
+          <minimumTokens>100</minimumTokens>
+          <targetJdk>13</targetJdk>
+
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
